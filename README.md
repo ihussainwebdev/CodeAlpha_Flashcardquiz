@@ -4,55 +4,67 @@ A simple and elegant flashcard quiz app built with Flutter for studying with eas
 
 ---
 
-## 📱 APK File Location (Android Installation File)
+## 📱 Download & Install APK
 
-### Release APK (Ready to install on phone):
+### ⚠️ APK File Not Included in Repository
+
+The APK file is **not included** in this repository due to its large size (~47 MB). You need to build it yourself.
+
+### 🔨 How to Build APK
+
+**Prerequisites:**
+- Flutter SDK installed ([Install Guide](https://flutter.dev/docs/get-started/install))
+- Android SDK installed (comes with Android Studio)
+
+**Build Steps:**
+
+```bash
+# 1. Clone this repository
+git clone https://github.com/YOUR_USERNAME/flashcard-quiz-app.git
+cd flashcard-quiz-app
+
+# 2. Install dependencies
+flutter pub get
+
+# 3. Build release APK
+flutter build apk --release
+```
+
+**Build Time:** ~2-3 minutes (first build may take longer)
+
+### 📍 Where to Find Built APK
+
+After successful build, the APK will be located at:
 
 ```
 flashcard_quiz_app/
 └── build/
     └── app/
         └── outputs/
-            ├── flutter-apk/
-            │   └── app-release.apk   ← USE THIS FILE (recommended)
-            └── apk/
-                └── release/
-                    └── app-release.apk   ← Also same file
+            └── flutter-apk/
+                └── app-release.apk   ← YOUR APK FILE HERE
 ```
 
-**Direct path:**
+**Full Path:**
 ```
-build\app\outputs\flutter-apk\app-release.apk
+build/app/outputs/flutter-apk/app-release.apk
 ```
 
-**File size:** ~47 MB
+**File Size:** ~47 MB
 
 ---
 
-## 📲 How to Install APK on Android Phone
+## 📲 Install APK on Android Phone
 
-1. **Transfer APK file** to your phone (via USB cable, WhatsApp, or Google Drive)
-2. Open **Settings** → **Security** → Enable **Unknown Sources**
-   - Or: Settings → Apps → Special App Access → Install Unknown Apps
-3. Open **File Manager** and locate the APK file
+Once you have built the APK:
+
+1. **Transfer APK** to your Android phone (USB, WhatsApp, Google Drive, etc.)
+2. On your phone, go to **Settings** → **Security** → Enable **"Install from Unknown Sources"**
+   - Modern Android: Settings → Apps → Special Access → Install Unknown Apps
+3. Open **File Manager** and locate the `app-release.apk` file
 4. **Tap** on the APK file
-5. Press **Install** button
-6. Done! App is installed
-
----
-
-## 🔨 Build New APK
-
-To build a fresh release APK:
-
-```bash
-flutter build apk --release
-```
-
-The APK will be automatically generated at:
-```
-build\app\outputs\flutter-apk\app-release.apk
-```
+5. Press **Install**
+6. Done! Open the app
 
 ---
 
@@ -129,27 +141,67 @@ dependencies:
 
 ---
 
-## 🚀 How to Run (Development)
+## 🚀 Quick Start Guide
 
-### Requirements:
-- Flutter SDK installed ([Install Guide](https://flutter.dev/docs/get-started/install))
-- Android Studio or VS Code
-- Android device or emulator
+### For Users (Just Want to Use the App):
 
-### Steps:
+1. **Build the APK** (see "Download & Install APK" section above)
+2. Transfer to your phone and install
+3. Start studying! 📚
+
+### For Developers (Want to Modify/Run):
 
 ```bash
-# 1. Install dependencies
+# 1. Clone repository
+git clone https://github.com/YOUR_USERNAME/flashcard-quiz-app.git
+cd flashcard-quiz-app
+
+# 2. Install dependencies
 flutter pub get
 
-# 2. Run app on connected device
+# 3. Check Flutter setup
+flutter doctor
+
+# 4. Run on connected device
 flutter run
 
-# 3. Run on Chrome (web)
+# 5. Or run on Chrome (web version)
 flutter run -d chrome
+```
 
-# 4. Build release APK for Android
+---
+
+## 🛠️ Development Setup
+
+### Requirements:
+- **Flutter SDK** ([Install Guide](https://flutter.dev/docs/get-started/install))
+- **Android Studio** or **VS Code**
+- **Android device** or emulator (for Android testing)
+
+### Commands:
+
+```bash
+# Install dependencies
+flutter pub get
+
+# Run app (debug mode)
+flutter run
+
+# Run on specific device
+flutter run -d chrome        # Web
+flutter run -d windows       # Windows (requires Visual Studio)
+
+# Build release APK
 flutter build apk --release
+
+# Build release iOS (Mac only)
+flutter build ios --release
+
+# Analyze code
+flutter analyze
+
+# Run tests
+flutter test
 ```
 
 ---
@@ -201,8 +253,29 @@ Built with Flutter ❤️
 
 ## 🐛 Known Issues
 
-- Windows platform requires Visual Studio with "Desktop development with C++" workload
-- Web platform uses SharedPreferences (localStorage) instead of SQLite
+- ⚠️ **APK file not in repository** — Must be built manually (see build instructions above)
+- ⚠️ Windows platform requires Visual Studio with "Desktop development with C++" workload
+- ⚠️ Web platform uses SharedPreferences (localStorage) instead of SQLite
+- ⚠️ First build may take 5-10 minutes to download dependencies
+
+---
+
+## ❓ FAQ
+
+**Q: Where is the APK file?**  
+A: APK is not included in the repo. Build it using `flutter build apk --release`. It will be generated at `build/app/outputs/flutter-apk/app-release.apk`
+
+**Q: Why isn't the APK included in the repository?**  
+A: APK files are large (~47 MB) and change with every build. GitHub best practice is to exclude build artifacts.
+
+**Q: Can I download a pre-built APK?**  
+A: Check the [Releases](https://github.com/YOUR_USERNAME/flashcard-quiz-app/releases) page for pre-built APKs (if available).
+
+**Q: Build failed. What should I do?**  
+A: Run `flutter doctor` to check your setup. Make sure Flutter SDK and Android SDK are properly installed.
+
+**Q: How to run on my phone for testing?**  
+A: Enable USB debugging on your phone, connect via USB, and run `flutter run`.
 
 ---
 
