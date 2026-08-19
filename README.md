@@ -4,9 +4,9 @@ A simple and elegant flashcard quiz app built with Flutter for studying with eas
 
 ---
 
-## APK File Kahan Hai? (Android Install File)
+## 📱 APK File Location (Android Installation File)
 
-### Release APK (Phone pe install karne wali file):
+### Release APK (Ready to install on phone):
 
 ```
 flashcard_quiz_app/
@@ -14,156 +14,206 @@ flashcard_quiz_app/
     └── app/
         └── outputs/
             ├── flutter-apk/
-            │   └── app-release.apk   ← YE WALI use karo (recommended)
+            │   └── app-release.apk   ← USE THIS FILE (recommended)
             └── apk/
                 └── release/
-                    └── app-release.apk   ← Ye bhi same hai
+                    └── app-release.apk   ← Also same file
 ```
 
-**Seedha path:**
+**Direct path:**
 ```
 build\app\outputs\flutter-apk\app-release.apk
 ```
 
-### Phone pe Install Kaise Karein:
+**File size:** ~47 MB
 
-1. **APK file** apne phone mein transfer karo (USB cable ya WhatsApp ya Google Drive)
-2. Phone mein **Settings** → **Security** → **Unknown Sources** ON karo
-   - (Ya: Settings → Apps → Special App Access → Install Unknown Apps)
-3. File Manager mein APK file dhundo aur **tap** karo
-4. **Install** button press karo
-5. Done! App install ho jayegi
+---
 
-### Naya APK Build Karna Ho Toh:
+## 📲 How to Install APK on Android Phone
+
+1. **Transfer APK file** to your phone (via USB cable, WhatsApp, or Google Drive)
+2. Open **Settings** → **Security** → Enable **Unknown Sources**
+   - Or: Settings → Apps → Special App Access → Install Unknown Apps
+3. Open **File Manager** and locate the APK file
+4. **Tap** on the APK file
+5. Press **Install** button
+6. Done! App is installed
+
+---
+
+## 🔨 Build New APK
+
+To build a fresh release APK:
 
 ```bash
-# Release APK banao (phone ke liye)
 flutter build apk --release
+```
 
-# APK automatically yahan save hogi:
-# build\app\outputs\flutter-apk\app-release.apk
+The APK will be automatically generated at:
+```
+build\app\outputs\flutter-apk\app-release.apk
 ```
 
 ---
 
-## Features
+## ✨ Features
 
-- **Flashcard Study Mode** — Question front pe, Answer back pe
-- **Show Answer Button** — Tap karo answer dekhne ke liye
-- **Next / Previous Navigation** — Bottom corners mein `<<` `>>` arrows
-- **Add / Edit / Delete Cards** — Drawer → Manage Cards
-- **Search** — Manage Cards screen mein search bar (question/answer search)
-- **Dark / Light Mode** — AppBar mein toggle button, SQLite mein save hota hai
-- **Splash Loader** — App start pe smooth loading screen
-- **SQLite Database** — Android/iOS pe (Web pe SharedPreferences)
+- ✅ **Flashcard Study Mode** — Question on front, Answer on back
+- ✅ **Show Answer Button** — Tap to reveal answer
+- ✅ **Navigation Controls** — Bottom corner arrows (`<<` `>>`)
+- ✅ **Add / Edit / Delete Cards** — Drawer → Manage Cards
+- ✅ **Search Functionality** — Search cards by question/answer/category
+- ✅ **Dark / Light Mode** — AppBar toggle button, saved in SQLite
+- ✅ **Splash Loader** — Smooth loading screen on startup
+- ✅ **SQLite Database** — Persistent storage (Android/iOS)
+- ✅ **Web Support** — SharedPreferences fallback for web platform
 
 ---
 
-## UI Design
+## 🎨 UI Design
 
-- **Color Scheme:** Black, White, Gold (#D4AF37)
+- **Color Scheme:** Black, White, and Gold (#D4AF37)
 - **Default Theme:** Light Mode
-- **Clean Interface:** Minimal aur easy to use
+- **Design:** Clean, minimal interface for easy usage
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 flashcard_quiz_app/
 ├── lib/
 │   ├── database/
-│   │   ├── database_helper.dart          # Abstract DB interface
-│   │   ├── database_helper_mobile.dart   # SQLite (Android/iOS)
+│   │   ├── database_helper.dart          # Abstract database interface
+│   │   ├── database_helper_mobile.dart   # SQLite implementation (Android/iOS)
 │   │   └── database_helper_web.dart      # SharedPreferences (Web)
 │   ├── models/
 │   │   └── flashcard.dart                # Flashcard data model
 │   ├── providers/
-│   │   ├── flashcard_provider.dart       # Cards state management
-│   │   └── theme_provider.dart           # Dark/Light theme + SQLite save
+│   │   ├── flashcard_provider.dart       # Flashcard state management
+│   │   └── theme_provider.dart           # Theme management + persistence
 │   ├── views/
-│   │   ├── home_screen.dart              # Main screen
+│   │   ├── home_screen.dart              # Main flashcard screen
 │   │   ├── manage_cards_screen.dart      # Add/Edit/Delete + Search
-│   │   └── settings_screen.dart         # Settings
+│   │   └── settings_screen.dart          # App settings
 │   ├── widgets/
-│   │   ├── custom_app_loader_screen.dart # Splash loader
-│   │   └── flashcard_card.dart          # Flashcard widget (flip)
-│   └── main.dart                         # App entry point
+│   │   ├── custom_app_loader_screen.dart # Splash loader animation
+│   │   └── flashcard_card.dart           # Flashcard flip widget
+│   └── main.dart                          # App entry point
 │
-├── android/                              # Android config
+├── android/                               # Android platform config
 ├── build/
 │   └── app/
 │       └── outputs/
 │           └── flutter-apk/
-│               └── app-release.apk       # ← INSTALL FILE YAHAN HAI
+│               └── app-release.apk        # ← INSTALL FILE HERE
 │
-├── pubspec.yaml                          # Dependencies
-└── README.md                             # Ye file
+├── pubspec.yaml                           # Project dependencies
+└── README.md                              # This file
 ```
 
 ---
 
-## Dependencies
+## 📦 Dependencies
 
 ```yaml
 dependencies:
   flutter:
     sdk: flutter
-  provider: ^6.1.2        # State management
-  sqflite: ^2.3.0         # SQLite database (mobile)
-  path: ^1.8.3            # File paths
-  shared_preferences: ^2.2.2  # Web storage fallback
-  cupertino_icons: ^1.0.6
+  provider: ^6.1.2              # State management
+  sqflite: ^2.3.0               # SQLite database (mobile)
+  path: ^1.8.3                  # File path utilities
+  shared_preferences: ^2.2.2    # Web storage fallback
+  cupertino_icons: ^1.0.6       # iOS icons
 ```
 
 ---
 
-## Run Kaise Karein (Development)
+## 🚀 How to Run (Development)
 
 ### Requirements:
-- Flutter SDK installed
-- Android Studio ya VS Code
-- Android device ya emulator
+- Flutter SDK installed ([Install Guide](https://flutter.dev/docs/get-started/install))
+- Android Studio or VS Code
+- Android device or emulator
 
 ### Steps:
 
 ```bash
-# 1. Dependencies install karo
+# 1. Install dependencies
 flutter pub get
 
-# 2. App run karo (connected device pe)
+# 2. Run app on connected device
 flutter run
 
-# 3. Chrome mein run karo (web)
+# 3. Run on Chrome (web)
 flutter run -d chrome
 
-# 4. Release APK build karo
+# 4. Build release APK for Android
 flutter build apk --release
 ```
 
 ---
 
-## Platform Support
+## 🖥️ Platform Support
 
-| Platform | Status | Storage |
-|----------|--------|---------|
+| Platform | Status | Storage Backend |
+|----------|--------|-----------------|
 | Android  | ✅ Full support | SQLite |
 | iOS      | ✅ Full support | SQLite |
-| Web      | ✅ Works | SharedPreferences |
-| Windows  | ⚠️ Needs Visual Studio | - |
+| Web      | ✅ Supported | SharedPreferences |
+| Windows  | ⚠️ Requires Visual Studio | - |
 
 ---
 
-## Version
+## 📸 Screenshots
 
-**3.0.0** — SQLite storage, Dark/Light theme, Search, Splash loader
+(Add screenshots here if needed)
 
 ---
 
-## Tech Stack
+## 🔧 Tech Stack
 
-- **Flutter 3.x** — UI Framework
-- **Provider** — State Management
-- **sqflite** — Local SQLite Database
+- **Flutter 3.x** — Cross-platform UI framework
+- **Provider** — State management solution
+- **sqflite** — Local SQLite database
 - **shared_preferences** — Web fallback storage
-- **Material Design 3** — Design System
+- **Material Design 3** — Modern design system
+
+---
+
+## 📝 Version
+
+**3.0.0** — SQLite storage, Dark/Light theme toggle, Search functionality, Splash loader
+
+---
+
+## 📄 License
+
+This project is open source and available for educational purposes.
+
+---
+
+## 👨‍💻 Developer
+
+Built with Flutter ❤️
+
+---
+
+## 🐛 Known Issues
+
+- Windows platform requires Visual Studio with "Desktop development with C++" workload
+- Web platform uses SharedPreferences (localStorage) instead of SQLite
+
+---
+
+## 🔮 Future Enhancements
+
+- [ ] Card categories/tags
+- [ ] Study statistics
+- [ ] Spaced repetition algorithm
+- [ ] Import/Export flashcards
+- [ ] Cloud sync
+
+---
+
+**Happy Studying! 📚**
